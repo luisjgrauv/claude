@@ -33,3 +33,4 @@ Toda sesión que trabaje en este repositorio (reina u obrera) lee este archivo a
 
 ## Lecciones aprendidas
 <!-- La reina agrega aquí, con fecha, toda corrección que deba valer para todas las obreras futuras. -->
+- 2026-11-22 · Distribuidora Andina S.A. es una **distribuidora de insumos**. Ejercicio base: **2025**, en valores históricos nominales. Las partidas no monetarias (inmuebles, rodados, seguros) llevan auxiliar con fecha de origen.

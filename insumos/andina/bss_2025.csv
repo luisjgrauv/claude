@@ -1,0 +1,48 @@
+Código;Cuenta;Rubro;Saldo inicial 31/12/2024;Débitos 2025;Créditos 2025;Saldo final 31/12/2025;Saldo deudor;Saldo acreedor
+1.1.01;Caja;Caja y bancos;6000000;32000000;30000000;8000000;8000000;0
+1.1.02;Banco Ficticio cuenta corriente;Caja y bancos;180000000;15728600000;15500000000;408600000;408600000;0
+1.2.01;Plazo fijo;Inversiones;150000000;370000000;300000000;220000000;220000000;0
+1.3.01;Deudores por ventas;Créditos por ventas;1300000000;16950000000;16500000000;1750000000;1750000000;0
+1.3.02;Previsión para deudores incobrables;Créditos por ventas;-39000000;16500000;30000000;-52500000;0;52500000
+1.4.01;Anticipos de impuesto a las ganancias;Otros créditos;80000000;150000000;80000000;150000000;150000000;0
+1.4.02;IVA saldo técnico a favor;Otros créditos;25000000;2100000000;2107000000;18000000;18000000;0
+1.4.03;Seguros pagados por adelantado;Otros créditos;24480000;136800000;122280000;39000000;39000000;0
+1.5.01;Mercaderías de reventa (insumos);Bienes de cambio;900000000;10150000000;9800000000;1250000000;1250000000;0
+1.6.01;Terrenos;Bienes de uso;19850000;0;0;19850000;19850000;0
+1.6.02;Edificios;Bienes de uso;53650000;0;0;53650000;53650000;0
+1.6.03;Amortización acumulada edificios;Bienes de uso;-6753000;0;1073000;-7826000;0;7826000
+1.6.04;Rodados - camiones;Bienes de uso;217545000;138000000;0;355545000;355545000;0
+1.6.05;Amortización acumulada rodados - camiones;Bienes de uso;-42870500;0;35554500;-78425000;0;78425000
+1.6.06;Rodados - vehículos ejecutivos;Bienes de uso;66320000;62100000;0;128420000;128420000;0
+1.6.07;Amortización acumulada rodados - vehículos ejecutivos;Bienes de uso;-20360000;0;25684000;-46044000;0;46044000
+1.6.08;Rodados - camionetas de reparto;Bienes de uso;26240000;0;0;26240000;26240000;0
+1.6.09;Amortización acumulada rodados - camionetas de reparto;Bienes de uso;-6348000;0;5248000;-11596000;0;11596000
+2.1.01;Proveedores;Deudas comerciales;-850000000;12000000000;12300000000;-1150000000;0;1150000000
+2.2.01;Sueldos y cargas sociales a pagar;Remuneraciones y cargas sociales;-90000000;1400000000;1440000000;-130000000;0;130000000
+2.3.01;Impuesto a las ganancias a pagar;Cargas fiscales;-210000000;210000000;498806175;-498806175;0;498806175
+2.3.02;Ingresos brutos a pagar;Cargas fiscales;-30000000;408000000;420000000;-42000000;0;42000000
+2.4.01;Préstamo bancario;Préstamos;-600000000;150000000;0;-450000000;0;450000000
+3.1.01;Capital suscripto;Patrimonio neto;-20000000;0;0;-20000000;0;20000000
+3.2.01;Reserva legal;Patrimonio neto;-4000000;0;0;-4000000;0;4000000
+3.3.01;Resultados no asignados;Patrimonio neto;-1129753500;120000000;0;-1009753500;0;1009753500
+4.1.01;Ventas de insumos;Ingresos;0;0;14000000000;-14000000000;0;14000000000
+4.2.01;Intereses ganados plazo fijo;Resultados financieros;0;0;55000000;-55000000;0;55000000
+5.1.01;Costo de mercaderías vendidas;Costo de ventas;0;9800000000;0;9800000000;9800000000;0
+5.2.01;Sueldos y cargas sociales - Comercialización;Gastos de comercialización;0;900000000;0;900000000;900000000;0
+5.2.02;Combustibles y fletes;Gastos de comercialización;0;380000000;0;380000000;380000000;0
+5.2.03;Mantenimiento de flota;Gastos de comercialización;0;120000000;0;120000000;120000000;0
+5.2.04;Impuesto sobre los ingresos brutos;Gastos de comercialización;0;420000000;0;420000000;420000000;0
+5.2.05;Deudores incobrables;Gastos de comercialización;0;30000000;0;30000000;30000000;0
+5.2.06;Seguros - Comercialización;Gastos de comercialización;0;104900000;0;104900000;104900000;0
+5.2.07;Amortización edificios - Comercialización;Gastos de comercialización;0;968000;0;968000;968000;0
+5.2.08;Amortización rodados - camiones;Gastos de comercialización;0;35554500;0;35554500;35554500;0
+5.2.09;Amortización rodados - camionetas de reparto;Gastos de comercialización;0;5248000;0;5248000;5248000;0
+5.3.01;Sueldos y cargas sociales - Administración;Gastos de administración;0;480000000;0;480000000;480000000;0
+5.3.02;Honorarios profesionales;Gastos de administración;0;70000000;0;70000000;70000000;0
+5.3.03;Servicios y mantenimiento;Gastos de administración;0;85000000;0;85000000;85000000;0
+5.3.04;Impuestos, tasas y contribuciones;Gastos de administración;0;35000000;0;35000000;35000000;0
+5.3.05;Seguros - Administración;Gastos de administración;0;17380000;0;17380000;17380000;0
+5.3.06;Amortización edificios - Administración;Gastos de administración;0;105000;0;105000;105000;0
+5.3.07;Amortización rodados - vehículos ejecutivos;Gastos de administración;0;25684000;0;25684000;25684000;0
+5.4.01;Intereses préstamo bancario;Resultados financieros;0;120000000;0;120000000;120000000;0
+5.5.01;Impuesto a las ganancias;Impuesto a las ganancias;0;498806175;0;498806175;498806175;0
