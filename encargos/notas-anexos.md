@@ -1,6 +1,6 @@
 # Encargo: notas-anexos
 
-**Estado:** PENDIENTE
+**Estado:** DETENIDA — obsoleto: el usuario redefinió el alcance (ejercicio 2025, valores históricos). Pendiente de nuevo encargo.
 **Rama:** obrera/notas-anexos
 **Creado por la reina:** 2026-11-22
 
