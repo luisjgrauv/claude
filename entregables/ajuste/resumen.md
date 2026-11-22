@@ -40,6 +40,25 @@ Comparativo 2025 en moneda de dic-2026: resultado **$611.508.366**; PN al 31/12/
 - **Diferencia:** < $0,01 en ambos años. **Explicación:** con flujos fechados en el mismo mes que la partida no monetaria de contrapartida, los dos métodos son algebraicamente idénticos: Σ PMNₘ₋₁ × inflaciónₘ × coefₘ = PMN cierre − PMN inicio × coef − Σ flujoₘ × coefₘ. Por eso la igualdad no prueba que las fechas de origen sean correctas. Sí prueba que no falta ninguna partida y que la clasificación monetaria/no monetaria es coherente. Además, la PMN de cierre que se arma con los flujos es igual a la del BSS.
 - **Estimación simplificada (orden de magnitud):** −PMN promedio × inflación anual. La hoja RECPAM, bloque C, la muestra. Su diferencia con el método por diferencia viene de la distribución de la inflación y de la PMN dentro del año.
 
+**Confirmación de independencia (pedida por la reina).** El método directo es un cálculo independiente. No usa ninguna cifra del cálculo por diferencia.
+- **Datos de entrada (hoja RECPAM, bloque B):**
+  - PMN de enero = suma de los saldos iniciales monetarios del BSS histórico.
+  - Cada mes, PMN fin = PMN inicio + flujo monetario neto del mes. El flujo sale de las filas mensuales históricas de la hoja Resultados (ingresos y gastos monetarios), de las compras (Mercaderías), de las altas y la venta de bienes de uso (Bienes de uso), de las primas pagadas (Seguros) y de los dividendos (Patrimonio neto).
+  - RECPAM del mes = −PMN al inicio del mes × (índiceₘ / índiceₘ₋₁ − 1) × (índice de cierre / índiceₘ).
+- **Qué no usa:** el saldo ajustado del BSS, el PN ajustado ni la celda del RECPAM por diferencia.
+- **Control cruzado:** la PMN de diciembre armada con los flujos coincide con la del BSS de cierre.
+- **Recálculo propio:** `verificar_ajuste.py` repite el directo en Python, leyendo directamente los insumos.
+
+| Año | RECPAM por diferencia | RECPAM método directo | Diferencia |
+|---|---:|---:|---:|
+| 2025 | −62.482.292,5062761 | −62.482.292,5062747 | −0,0000014 |
+| 2026 | −174.121.078,291697 | −174.121.078,2917 | +0,0000027 |
+
+**Por qué la diferencia es solo error de coma flotante (≈10⁻⁶ $):**
+- Cada partida devengada mensualmente se reexpresa con el coeficiente del mes en que genera su flujo monetario. Por eso no se espera una diferencia económica.
+- Las partidas con desfase (CMV, amortizaciones y seguros) no generan flujo monetario en el mes en que se devengan. Su flujo monetario es la compra, el alta o el pago de la prima, y entra en el directo con ese mes. Es el mismo coeficiente con que el método por diferencia reexpresa la partida no monetaria. Por eso tampoco generan diferencia.
+- Una diferencia aparecería solo si se cambiara la convención de fechas, por ejemplo con un flujo a mitad de mes o un índice de cierre de mes en lugar del índice promedio. Como referencia, la estimación simplificada (PMN promedio × inflación anual) da −64.648.090 en 2025 (dif. 2.165.797) y −191.970.780 en 2026 (dif. 17.849.702).
+
 ## 4. Entregables
 | Archivo | Contenido |
 |---|---|
