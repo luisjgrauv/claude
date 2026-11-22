@@ -1,6 +1,6 @@
 # Encargo: ajuste-inflacion
 
-**Estado:** PENDIENTE (arranca cuando termine la fase 1)
+**Estado:** PENDIENTE
 **Rama:** obrera/ajuste-inflacion
 **Creado por la reina:** 2026-11-22 · Fase 2 de `PLAN_ANDINA.md`
 
@@ -14,6 +14,14 @@
 - Normativa: la vigente de la FACPCE en materia de unidad de medida (RT 6 / RT 54 y resoluciones de la JG). Verificá vigencia y método, y citalo.
 - Método esperado: reexpresión de partidas no monetarias por coeficiente desde su fecha de origen (bienes de uso bien por bien, seguros por fecha de pago, mercaderías por mes de compra, PN por componente y fecha); resultados mensuales; RECPAM por diferencia, con una estimación por el método directo como control de razonabilidad.
 - Patrimonio neto al inicio: capital y ajuste de capital por separado. Definí y documentá cómo tratás la reserva legal (art. 70 LGS) y si hace falta reconocer una asignación faltante. Esto es **Duda**: dejá tu propuesta.
+
+## Datos de la fase 1 (integrados y verificados por la reina)
+- Índices: `insumos/indices/indices_facpce.csv` (155 oficiales; nov-26 y dic-26 **estimados**). Coeficientes de control: dic24→dic25 1,315488; dic25→dic26 1,312270; dic24→dic26 1,726275.
+- Resultados históricos: 2025 $926.354.325; 2026 $1.250.174.250. La apertura 2026 coincide con el cierre 2025 (verificado).
+- `entregables/historicos/control_generador.json` tiene los asientos 2026 (útil para RECPAM directo y para el EFE).
+- PN: las capas de RNA por año de origen están en `auxiliares_complementarios_2025.xlsx`.
+- Mercaderías: las capas FIFO por mes de compra están en los auxiliares complementarios 2025 y en los auxiliares 2026.
+- Préstamo: cronograma trimestral **supuesto** (Dato faltante).
 
 ## Entregables
 - [ ] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
