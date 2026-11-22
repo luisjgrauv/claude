@@ -1,6 +1,6 @@
 # Encargo: insumos-historicos
 
-**Estado:** PENDIENTE
+**Estado:** TERMINADO
 **Rama:** obrera/insumos-historicos
 **Creado por la reina:** 2026-11-22 · Fase 1 de `PLAN_ANDINA.md`
 
@@ -44,3 +44,5 @@ Completar la base **histórica nominal** de Distribuidora Andina S.A. (ficticia,
 
 ---
 ## Bitácora
+2026-11-22 · Hecho: generador `entregables/historicos/generador_historicos.py` (replica la lógica de amortización y seguros de los auxiliares 2025, con asserts contra ellos); `auxiliares_complementarios_2025.xlsx` (mercaderías FIFO por mes de compra, PN por año de origen, resultados mensuales 2025); `bss_2026.xlsx/.csv`; `auxiliares_2026.xlsx`; `datos_adicionales_2026.md`; `entregables/historicos/eecc_historicos_2025_2026.xlsx`; `control_generador.json` (asientos resumidos 2026 para el EFE). · Falta: nada. · Siguiente paso: revisión e integración por la reina. · Decisión pendiente: ninguna.
+2026-11-22 · Hecho: verificación `verificar_historicos.py` con Python y LibreOffice (soffice → csv de todas las hojas): 28 controles OK, 0 errores. BSS 2026 cuadra (D = C = 97.923.246.925; saldos iniciales y finales 0); conciliaciones 2025 y 2026 con diferencia 0; fechas de origen en bienes, pólizas, capas de mercaderías y PN; originales 2025 sin cambios. Resultado 2025 926.354.325; resultado 2026 1.250.174.250. · Falta: nada. · Siguiente paso: fase 2 (ajuste-inflacion). · Decisión pendiente: ninguna. Duda abierta (no resuelta, por encargo): base de la reserva legal art. 70 LGS después del ajuste.
