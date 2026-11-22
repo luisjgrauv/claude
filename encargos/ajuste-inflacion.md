@@ -1,6 +1,6 @@
 # Encargo: ajuste-inflacion
 
-**Estado:** PENDIENTE
+**Estado:** EN_CURSO (hito 1/3 cerrado)
 **Rama:** obrera/ajuste-inflacion
 **Creado por la reina:** 2026-11-22 · Fase 2 de `PLAN_ANDINA.md`
 
@@ -24,7 +24,7 @@
 - Préstamo: cronograma trimestral **supuesto** (Dato faltante).
 
 ## Entregables
-- [ ] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
+- [x] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
 - [ ] `entregables/ajuste/ajuste_2026.xlsx`: la misma estructura, con saldos iniciales = cierre 2025 ajustado × coeficiente dic-2025→dic-2026.
 - [ ] `entregables/ajuste/comparativo_2025_en_moneda_dic2026.xlsx`: ESP, ER y EEPN 2025 en moneda de dic-2026.
 - [ ] `entregables/ajuste/resumen.md`: método, norma citada, coeficientes usados, resultado histórico vs. ajustado por año, RECPAM y Dudas.
@@ -41,3 +41,4 @@
 
 ---
 ## Bitácora
+- 2026-11-22 · **Hito 1 — Ajuste 2025 (moneda dic-2025): cerrado.** `ajuste_2025.xlsx` generado por `generador_ajuste.py` (fórmulas vinculadas, recalculado con LibreOffice). Resultado histórico $926.354.325 → ajustado **$465.992.887**. RECPAM por diferencia **−$62.482.293** = método directo (dif. < $0,01; identidad algebraica explicada en hoja RECPAM). PN ajustado 31/12/2025 $6.005.534.707. RNA inicial por diferencia (RT 6, primer ejercicio). Controles: todos OK. **Duda (no bloquea):** reserva legal art. 70 LGS. Propuesta: base = capital + ajuste de capital; faltante $557,1 M a dic-2025; no se contabiliza asignación (requiere asamblea). Falta: hitos 2 y 3.
