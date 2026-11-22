@@ -127,6 +127,19 @@ chk('Anexo V: no devengado 31/12/2026', a5.cell(row=i, column=12).value, B26['1.
 npol = sum(1 for r in a5.iter_rows(values_only=True) if r[0] and str(r[0]).startswith('POL-'))
 chk('Anexo V: 10 pólizas', npol, 10)
 
+# 3b. Cruce con los estados básicos de eecc-2026
+ee = openpyxl.load_workbook(os.path.join(RAIZ, 'entregables', 'eecc-2026', 'eecc_andina_2026.xlsx'), data_only=True)
+EE = {r[0].strip(): (r[1], r[2]) for r in ee['ESP'].iter_rows(values_only=True) if r[0] and isinstance(r[1], (int, float))}
+EER = {r[0].strip(): (r[1], r[2]) for r in ee['ER'].iter_rows(values_only=True) if r[0] and isinstance(r[1], (int, float))}
+tot = json.load(open(os.path.join(AQUI, 'control_notas_anexos.json'), encoding='utf-8'))['totales']
+chk('eecc-2026: total activo 2026', tot['activo_2026'], EE['TOTAL DEL ACTIVO'][0])
+chk('eecc-2026: total activo 2025', tot['activo_2025'], EE['TOTAL DEL ACTIVO'][1])
+chk('eecc-2026: total pasivo 2026', tot['pasivo_2026'], EE['TOTAL DEL PASIVO'][0])
+chk('eecc-2026: total pasivo 2025', tot['pasivo_2025'], EE['TOTAL DEL PASIVO'][1])
+chk('eecc-2026: bienes de uso 2026 (Anexo I)', v, EE['Bienes de uso'][0])
+chk('eecc-2026: CMV 2026 (Anexo III)', a3['B8'].value, -EER['Costo de las mercaderías vendidas'][0])
+chk('eecc-2026: resultado 2026', tot['resultado_2026'], EER['RESULTADO DEL EJERCICIO — GANANCIA'][0])
+
 # 4. Notas
 ctrl = json.load(open(os.path.join(AQUI, 'control_notas_anexos.json'), encoding='utf-8'))
 txt = open(MD, encoding='utf-8').read()

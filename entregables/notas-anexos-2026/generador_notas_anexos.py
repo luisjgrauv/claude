@@ -27,6 +27,24 @@ wb25 = openpyxl.load_workbook(os.path.join(AJ, 'ajuste_2025.xlsx'), data_only=Tr
 wb26 = openpyxl.load_workbook(os.path.join(AJ, 'ajuste_2026.xlsx'), data_only=True)
 wbcmp = openpyxl.load_workbook(os.path.join(AJ, 'comparativo_2025_en_moneda_dic2026.xlsx'), data_only=True)
 wbaux = openpyxl.load_workbook(AUX26, data_only=True)
+EECC = os.path.join(RAIZ, 'entregables', 'eecc-2026', 'eecc_andina_2026.xlsx')
+wbee = openpyxl.load_workbook(EECC, data_only=True)
+
+
+def ee_tabla(ws):
+    d = {}
+    for r in ws.iter_rows(values_only=True):
+        if r[0] and isinstance(r[1], (int, float)):
+            d[r[0].strip()] = (r[1], r[2])
+    return d
+
+
+def ee(tab, prefijo):
+    if prefijo in tab:
+        return tab[prefijo]
+    k = [x for x in tab if x.startswith(prefijo)]
+    assert len(k) == 1, (prefijo, k)
+    return tab[k[0]]
 
 
 def header_row(ws, first='Código'):
@@ -113,6 +131,8 @@ ER25C = tabla(wbcmp['ER 2025'])
 ESP25C = tabla(wbcmp['ESP 2025'])
 PN26 = {r[0]: r[5] for r in wb26['Patrimonio neto'].iter_rows(values_only=True) if r[0]}
 CTRL26 = {r[0]: r[1] for r in wb26['Controles'].iter_rows(values_only=True) if r[0]}
+EESP = ee_tabla(wbee['ESP'])
+EER = ee_tabla(wbee['ER'])
 
 # ---------------------------------------------------------------- cálculos (Python)
 def s(code, cual='fin'):
@@ -690,10 +710,12 @@ P('## Nota 6 — Otros créditos')
 P('')
 tab('Concepto', [('Anticipos de impuesto a las ganancias', c['anti'], c['anti25']), ('IVA saldo técnico a favor', c['iva'], c['iva25']),
                  ('Seguros pagados por adelantado (Anexo V)', c['seg'], c['seg25']),
-                 ('**Total corriente**', c['anti'] + c['iva'] + c['seg'], c['anti25'] + c['iva25'] + c['seg25'])],
-    '**Duda (presentación):** los anticipos de impuesto a las ganancias se exponen sin compensar con la deuda del impuesto (Nota 7), igual que en el BSS y en el comparativo. '
-    'La compensación procede si existe el derecho legal de compensar y la intención de cancelar por el neto. '
-    'Si se compensa, otros créditos y cargas fiscales bajan $%s en 2026 y $%s en 2025. El criterio debe coincidir con el de `eecc-2026`.' % (m(c['anti']), m(c['anti25'])))
+                 ('Subtotal (saldos brutos)', c['anti'] + c['iva'] + c['seg'], c['anti25'] + c['iva25'] + c['seg25']),
+                 ('Menos: anticipos de IG compensados con el impuesto a pagar (Nota 7.5)', -c['anti'], -c['anti25']),
+                 ('**Total corriente (neto)**', c['iva'] + c['seg'], c['iva25'] + c['seg25'])],
+    '**Compensación:** los anticipos de impuesto a las ganancias se compensan con el impuesto determinado a pagar. Se trata del mismo impuesto y del mismo fisco, '
+    'y el ente tiene el derecho legal de cancelar por el neto. Es el mismo criterio de presentación de los estados básicos (`eecc-2026`), definido por la reina el 22/11/2026. '
+    'En el BSS los saldos siguen brutos: la compensación solo afecta la exposición.')
 P('## Nota 7 — Bienes de cambio, bienes de uso y deudas')
 P('')
 P('### 7.1 Bienes de cambio')
@@ -732,8 +754,11 @@ P('')
 tab('Concepto', [('Sueldos y cargas sociales a pagar', c['sue'], c['sue25']), ('**Total corriente**', c['sue'], c['sue25'])])
 P('### 7.5 Cargas fiscales')
 P('')
-tab('Concepto', [('Impuesto a las ganancias a pagar (Nota 8)', c['ig'], c['ig25']), ('Impuesto sobre los ingresos brutos a pagar', c['iibb'], c['iibb25']),
-                 ('**Total corriente**', c['ig'] + c['iibb'], c['ig25'] + c['iibb25'])])
+tab('Concepto', [('Impuesto a las ganancias determinado (Nota 8)', c['ig'], c['ig25']),
+                 ('Menos: anticipos de impuesto a las ganancias compensados (Nota 6)', -c['anti'], -c['anti25']),
+                 ('Impuesto a las ganancias a pagar, neto', c['ig'] - c['anti'], c['ig25'] - c['anti25']),
+                 ('Impuesto sobre los ingresos brutos a pagar', c['iibb'], c['iibb25']),
+                 ('**Total corriente**', c['ig'] - c['anti'] + c['iibb'], c['ig25'] - c['anti25'] + c['iibb25'])])
 P('### 7.6 Préstamos')
 P('')
 tab('Concepto', [('Préstamo bancario — porción corriente', c['prest_c'], c['prest_c25']), ('Préstamo bancario — porción no corriente', c['prest_nc'], c['prest_nc25']),
@@ -761,8 +786,8 @@ P('Control:')
 P('- Resultado histórico antes del impuesto 2026: $%s × 35 %% = $%s, igual al cargo.' % (m(rai26_h), m(rai26_h * TASA)))
 P('- Resultado histórico antes del impuesto 2025: $%s × 35 %% = $%s en moneda dic-2025, que reexpresado da $%s.' % (m(rai25_h), m(rai25_h * TASA), m(rai25_h * TASA * K)))
 P('')
-P('Composición del pasivo al 31/12/2026: impuesto determinado $%s, expuesto en Cargas fiscales. Los anticipos pagados en 2026 ($%s) están en Otros créditos (ver la Duda de la Nota 6).'
-  % (m(c['ig']), m(c['anti'])))
+P('Pasivo al 31/12/2026: impuesto determinado $%s, menos anticipos pagados en 2026 $%s, igual a $%s neto, expuesto en Cargas fiscales (Notas 6 y 7.5).'
+  % (m(c['ig']), m(c['anti']), m(c['ig'] - c['anti'])))
 P('')
 P('**Dudas y limitaciones (requieren validación profesional):**')
 P('1. **Impuesto diferido.** La RT 54 requiere, como regla general, el método del impuesto diferido. La reexpresión de bienes de uso, bienes de cambio y seguros genera diferencias temporarias con sus valores fiscales.')
@@ -827,21 +852,28 @@ ctrl_rows = [
     ('Caja y bancos', c['caja'] + c['banco'], esp['Caja y bancos'][0], c['caja25'] + c['banco25'], esp['Caja y bancos'][1]),
     ('Inversiones', c['pf'], esp['Inversiones'][0], c['pf25'], esp['Inversiones'][1]),
     ('Créditos por ventas', c['deud'] + c['prev'], esp['Créditos por ventas'][0], c['deud25'] + c['prev25'], esp['Créditos por ventas'][1]),
-    ('Otros créditos', c['anti'] + c['iva'] + c['seg'], esp['Otros créditos'][0], c['anti25'] + c['iva25'] + c['seg25'], esp['Otros créditos'][1]),
+    ('Otros créditos (neto de compensación)', c['iva'] + c['seg'], esp['Otros créditos'][0] - c['anti'], c['iva25'] + c['seg25'], esp['Otros créditos'][1] - c['anti25']),
     ('Bienes de cambio', c['merc'], esp['Bienes de cambio'][0], c['merc25'], esp['Bienes de cambio'][1]),
     ('Bienes de uso (Anexo I)', c['bu'], esp['Bienes de uso'][0], c['bu25'], esp['Bienes de uso'][1]),
     ('Deudas comerciales', c['prov'], -esp['Deudas comerciales'][0], c['prov25'], -esp['Deudas comerciales'][1]),
     ('Remuneraciones y cargas sociales', c['sue'], -esp['Remuneraciones y cargas sociales'][0], c['sue25'], -esp['Remuneraciones y cargas sociales'][1]),
-    ('Cargas fiscales', c['ig'] + c['iibb'], -esp['Cargas fiscales'][0], c['ig25'] + c['iibb25'], -esp['Cargas fiscales'][1]),
+    ('Cargas fiscales (neto de compensación)', c['ig'] - c['anti'] + c['iibb'], -esp['Cargas fiscales'][0] - c['anti'], c['ig25'] - c['anti25'] + c['iibb25'], -esp['Cargas fiscales'][1] - c['anti25']),
     ('Préstamos (corriente + no corriente)', c['prest_c'] + c['prest_nc'], -esp['Préstamos'][0], c['prest_c25'] + c['prest_nc25'], -esp['Préstamos'][1]),
 ]
 act_n26 = sum(r[1] for r in ctrl_rows[:6]); act_n25 = sum(r[3] for r in ctrl_rows[:6])
 pas_n26 = sum(r[1] for r in ctrl_rows[6:]); pas_n25 = sum(r[3] for r in ctrl_rows[6:])
 ctrl_rows += [
-    ('**Total activo**', act_n26, tot_act26, act_n25, tot_act25),
-    ('**Total pasivo**', pas_n26, tot_pas26, pas_n25, tot_pas25),
+    ('**Total activo**', act_n26, tot_act26 - c['anti'], act_n25, tot_act25 - c['anti25']),
+    ('**Total pasivo**', pas_n26, tot_pas26 - c['anti'], pas_n25, tot_pas25 - c['anti25']),
     ('**Patrimonio neto (activo − pasivo)**', act_n26 - pas_n26, PN26['Total patrimonio neto al 31/12/2026'], act_n25 - pas_n25, PN26['Total patrimonio neto al 31/12/2025 (en moneda de dic-2026)']),
 ]
+EE_ESP = [ee(EESP, 'Caja y bancos'), ee(EESP, 'Inversiones'), ee(EESP, 'Créditos por ventas'), ee(EESP, 'Otros créditos'),
+          ee(EESP, 'Bienes de cambio'), ee(EESP, 'Bienes de uso'), ee(EESP, 'Deudas comerciales'), ee(EESP, 'Remuneraciones'),
+          ee(EESP, 'Cargas fiscales'),
+          tuple(a + b for a, b in zip(ee(EESP, 'Préstamos (porción corriente)'), ee(EESP, 'Préstamos (porción no corriente)'))),
+          ee(EESP, 'TOTAL DEL ACTIVO'), ee(EESP, 'TOTAL DEL PASIVO'), ee(EESP, 'PATRIMONIO NETO')]
+EE_ER = [ee(EER, 'Costo de las mercaderías vendidas'), ee(EER, 'Gastos de comercialización'), ee(EER, 'Gastos de administración'),
+         ee(EER, 'Generados por pasivos'), None, None, ee(EER, 'Impuesto a las ganancias'), ee(EER, 'RESULTADO DEL EJERCICIO')]
 er_rows = [
     ('Costo de mercaderías vendidas (Anexo III)', cmv['cmv26'], s('5.1.01'), cmv['cmv25'], -ER25C['Costo de mercaderías vendidas']),
     ('Gastos de comercialización (Anexo IV)', tot_com, sum(v['fin'] for v in B26.values() if v['rubro'] == 'Gastos de comercialización'), tot_com25, -ER25C['Gastos de comercialización']),
@@ -864,34 +896,44 @@ otros = [
 ]
 P('## Tabla de control — notas y anexos contra los BSS ajustados')
 P('')
-P('Fuente de la columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajustado. El 31/12/2025 sale del saldo inicial en moneda dic-2026. '
-  'El estado de resultados 2025 sale de `comparativo_2025_en_moneda_dic2026.xlsx`. Diferencia aceptada: menor a $1.')
+P('Fuentes:')
+P('- Columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajustado; el 31/12/2025 es el saldo inicial en moneda dic-2026. '
+  'En Otros créditos, Cargas fiscales y los totales, el BSS se muestra neto de la compensación de anticipos de IG (Nota 6).')
+P('- Estado de resultados 2025: `comparativo_2025_en_moneda_dic2026.xlsx`.')
+P('- Columna eecc: `entregables/eecc-2026/eecc_andina_2026.xlsx`, hojas ESP y ER (estados básicos de la sesión eecc-2026).')
+P('- Diferencia aceptada: menor a $1.')
 P('')
 P('### Estado de situación patrimonial')
 P('')
-P('| Rubro | Nota 31/12/2026 | BSS 31/12/2026 | Dif. | Nota 31/12/2025 | BSS 31/12/2025 | Dif. | Resultado |')
+P('| Rubro | Nota 31/12/2026 | BSS 31/12/2026 | eecc 31/12/2026 | Nota 31/12/2025 | BSS 31/12/2025 | eecc 31/12/2025 | Resultado |')
 P('|---|---:|---:|---:|---:|---:|---:|---|')
 CTRL_OK = True
 CTRL_LIST = []
 
 
-def fila_ctrl(t, a, b, a2, b2):
+def fila_ctrl(t, a, b, a2, b2, e=None, signo=1):
     global CTRL_OK
     ok = abs(a - b) < 1 and abs(a2 - b2) < 1
+    if e is not None:
+        e26, e25 = e[0] * signo, e[1] * signo
+        ok = ok and abs(a - e26) < 1 and abs(a2 - e25) < 1
+        CTRL_LIST.append(dict(control=t.replace('*', ''), nota_2026=a, bss_2026=b, eecc_2026=e26, nota_2025=a2, bss_2025=b2, eecc_2025=e25, ok=ok))
+        P('| %s | %s | %s | %s | %s | %s | %s | %s |' % (t, m(a), m(b), m(e26), m(a2), m(b2), m(e25), 'OK' if ok else 'ERROR'))
+    else:
+        CTRL_LIST.append(dict(control=t.replace('*', ''), nota_2026=a, bss_2026=b, nota_2025=a2, bss_2025=b2, ok=ok))
+        P('| %s | %s | %s | — | %s | %s | — | %s |' % (t, m(a), m(b), m(a2), m(b2), 'OK' if ok else 'ERROR'))
     CTRL_OK &= ok
-    CTRL_LIST.append(dict(control=t.replace('*', ''), nota_2026=a, bss_2026=b, nota_2025=a2, bss_2025=b2, ok=ok))
-    P('| %s | %s | %s | %s | %s | %s | %s | %s |' % (t, m(a), m(b), m(a - b), m(a2), m(b2), m(a2 - b2), 'OK' if ok else 'ERROR'))
 
 
-for r_ in ctrl_rows:
-    fila_ctrl(*r_)
+for r_, e_ in zip(ctrl_rows, EE_ESP):
+    fila_ctrl(*r_, e=e_)
 P('')
 P('### Estado de resultados (egresos con signo positivo; resultado del ejercicio: ganancia positiva)')
 P('')
-P('| Concepto | Nota / anexo 2026 | BSS 2026 | Dif. | Nota / anexo 2025 | Comparativo 2025 | Dif. | Resultado |')
+P('| Concepto | Nota / anexo 2026 | BSS 2026 | eecc 2026 | Nota / anexo 2025 | Comparativo 2025 | eecc 2025 | Resultado |')
 P('|---|---:|---:|---:|---:|---:|---:|---|')
-for r_ in er_rows:
-    fila_ctrl(*r_)
+for r_, e_ in zip(er_rows, EE_ER):
+    fila_ctrl(*r_, e=e_, signo=(1 if r_[0].startswith('**Resultado') else -1))
 P('')
 P('### Otros controles')
 P('')
@@ -905,7 +947,7 @@ for t, a, b in otros:
 P('')
 P('**Resultado global de los controles: %s.** La hoja Controles de `anexos_andina_2026.xlsx` repite los cruces con fórmulas.' % ('OK' if CTRL_OK else 'ERROR'))
 P('')
-P('**Cruce con `eecc-2026`: pendiente.** La sesión eecc-2026 trabaja en paralelo y su entregable no estaba integrado al cerrar estas notas. Lo hace la reina con esta misma tabla.')
+P('**Cruce con `eecc-2026`: OK.** Los rubros y totales del ESP y del ER de las notas coinciden con `eecc_andina_2026.xlsx` en 2026 y en 2025 (columnas eecc).')
 P('')
 P('## Supuestos, Dudas y datos faltantes (resumen)')
 P('')
@@ -916,7 +958,6 @@ for t in [
     ('Duda', 'Número de la resolución de adopción de la RT 54 / RT 59 en el CPCECABA y párrafos de la RT 54 sobre unidad de medida', '1.1'),
     ('Duda', 'Base de la reserva legal (art. 70 LGS) con o sin ajuste de capital: faltante de $%s y asignación mínima propuesta de $%s' % (m(rl['faltante']), m(rl['prop'])), '9.3'),
     ('Duda', 'Impuesto diferido no reconocido (supuesto del insumo) y escala de alícuotas de la Ley 27.630', '8'),
-    ('Duda', 'Compensación de los anticipos de IG con la deuda del impuesto (criterio a unificar con eecc-2026)', '6'),
     ('Dato faltante', 'Prueba de valor recuperable de bienes de uso y de VNR de bienes de cambio', '2, 7.1, 7.2'),
     ('Dato faltante', 'Fechas de aplicación de la previsión para incobrables (supuesto lineal mensual)', 'Anexo II'),
     ('Dato faltante', 'Cronograma, tasa y garantías del préstamo', '7.6'),
@@ -932,7 +973,7 @@ with open(MD, 'w', encoding='utf-8') as f:
     f.write('\n'.join(N) + '\n')
 
 json.dump(dict(ok=CTRL_OK, controles=CTRL_LIST,
-               totales=dict(activo_2026=tot_act26, pasivo_2026=tot_pas26, pn_2026=pn26, activo_2025=tot_act25, pasivo_2025=tot_pas25,
+               totales=dict(activo_2026=act_n26, pasivo_2026=pas_n26, pn_2026=pn26, activo_2025=act_n25, pasivo_2025=pas_n25,
                             pn_2025=pn25, resultado_2026=res26, resultado_2025=res25, bienes_uso_2026=c['bu'], bienes_uso_2025=c['bu25'],
                             cmv_2026=cmv['cmv26'], cmv_2025=cmv['cmv25'], gastos_com_2026=tot_com, gastos_adm_2026=tot_adm,
                             ig_2026=ig26, recpam_2026=recpam26, reserva_faltante=rl['faltante'], reserva_propuesta=rl['prop'])),

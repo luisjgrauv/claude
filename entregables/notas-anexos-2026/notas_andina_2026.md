@@ -99,9 +99,11 @@ Dato faltante: antigüedad de los créditos y plazos de cobro. Por esa razón no
 | Anticipos de impuesto a las ganancias | 350.000.000 | 196.840.462 |
 | IVA saldo técnico a favor | 20.000.000 | 23.620.855 |
 | Seguros pagados por adelantado (Anexo V) | 59.617.953 | 58.778.198 |
-| **Total corriente** | **429.617.953** | **279.239.515** |
+| Subtotal (saldos brutos) | 429.617.953 | 279.239.515 |
+| Menos: anticipos de IG compensados con el impuesto a pagar (Nota 7.5) | (350.000.000) | (196.840.462) |
+| **Total corriente (neto)** | **79.617.953** | **82.399.053** |
 
-**Duda (presentación):** los anticipos de impuesto a las ganancias se exponen sin compensar con la deuda del impuesto (Nota 7), igual que en el BSS y en el comparativo. La compensación procede si existe el derecho legal de compensar y la intención de cancelar por el neto. Si se compensa, otros créditos y cargas fiscales bajan $350.000.000 en 2026 y $196.840.462 en 2025. El criterio debe coincidir con el de `eecc-2026`.
+**Compensación:** los anticipos de impuesto a las ganancias se compensan con el impuesto determinado a pagar. Se trata del mismo impuesto y del mismo fisco, y el ente tiene el derecho legal de cancelar por el neto. Es el mismo criterio de presentación de los estados básicos (`eecc-2026`), definido por la reina el 22/11/2026. En el BSS los saldos siguen brutos: la compensación solo afecta la exposición.
 
 ## Nota 7 — Bienes de cambio, bienes de uso y deudas
 
@@ -156,9 +158,11 @@ Composición al 31/12/2026, según el auxiliar:
 
 | Concepto | 31/12/2026 | 31/12/2025 |
 |---|---:|---:|
-| Impuesto a las ganancias a pagar (Nota 8) | 673.170.750 | 654.568.252 |
+| Impuesto a las ganancias determinado (Nota 8) | 673.170.750 | 654.568.252 |
+| Menos: anticipos de impuesto a las ganancias compensados (Nota 6) | (350.000.000) | (196.840.462) |
+| Impuesto a las ganancias a pagar, neto | 323.170.750 | 457.727.790 |
 | Impuesto sobre los ingresos brutos a pagar | 54.600.000 | 55.115.329 |
-| **Total corriente** | **727.770.750** | **709.683.582** |
+| **Total corriente** | **377.770.750** | **512.843.120** |
 
 ### 7.6 Préstamos
 
@@ -190,7 +194,7 @@ Control:
 - Resultado histórico antes del impuesto 2026: $1.923.345.000 × 35 % = $673.170.750, igual al cargo.
 - Resultado histórico antes del impuesto 2025: $1.425.160.500 × 35 % = $498.806.175 en moneda dic-2025, que reexpresado da $654.568.252.
 
-Composición del pasivo al 31/12/2026: impuesto determinado $673.170.750, expuesto en Cargas fiscales. Los anticipos pagados en 2026 ($350.000.000) están en Otros créditos (ver la Duda de la Nota 6).
+Pasivo al 31/12/2026: impuesto determinado $673.170.750, menos anticipos pagados en 2026 $350.000.000, igual a $323.170.750 neto, expuesto en Cargas fiscales (Notas 6 y 7.5).
 
 **Dudas y limitaciones (requieren validación profesional):**
 1. **Impuesto diferido.** La RT 54 requiere, como regla general, el método del impuesto diferido. La reexpresión de bienes de uso, bienes de cambio y seguros genera diferencias temporarias con sus valores fiscales.
@@ -249,38 +253,42 @@ Composición del pasivo al 31/12/2026: impuesto determinado $673.170.750, expues
 
 ## Tabla de control — notas y anexos contra los BSS ajustados
 
-Fuente de la columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajustado. El 31/12/2025 sale del saldo inicial en moneda dic-2026. El estado de resultados 2025 sale de `comparativo_2025_en_moneda_dic2026.xlsx`. Diferencia aceptada: menor a $1.
+Fuentes:
+- Columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajustado; el 31/12/2025 es el saldo inicial en moneda dic-2026. En Otros créditos, Cargas fiscales y los totales, el BSS se muestra neto de la compensación de anticipos de IG (Nota 6).
+- Estado de resultados 2025: `comparativo_2025_en_moneda_dic2026.xlsx`.
+- Columna eecc: `entregables/eecc-2026/eecc_andina_2026.xlsx`, hojas ESP y ER (estados básicos de la sesión eecc-2026).
+- Diferencia aceptada: menor a $1.
 
 ### Estado de situación patrimonial
 
-| Rubro | Nota 31/12/2026 | BSS 31/12/2026 | Dif. | Nota 31/12/2025 | BSS 31/12/2025 | Dif. | Resultado |
+| Rubro | Nota 31/12/2026 | BSS 31/12/2026 | eecc 31/12/2026 | Nota 31/12/2025 | BSS 31/12/2025 | eecc 31/12/2025 | Resultado |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Caja y bancos | 549.713.825 | 549.713.825 | 0 | 546.691.576 | 546.691.576 | 0 | OK |
-| Inversiones | 270.000.000 | 270.000.000 | 0 | 288.699.344 | 288.699.344 | 0 | OK |
-| Créditos por ventas | 2.204.500.000 | 2.204.500.000 | 0 | 2.227.577.893 | 2.227.577.893 | 0 | OK |
-| Otros créditos | 429.617.953 | 429.617.953 | 0 | 279.239.515 | 279.239.515 | 0 | OK |
-| Bienes de cambio | 1.632.937.362 | 1.632.937.362 | 0 | 1.652.008.929 | 1.652.008.929 | 0 | OK |
-| Bienes de uso (Anexo I) | 5.631.383.710 | 5.631.383.710 | 0 | 5.866.574.485 | 5.866.574.485 | 0 | OK |
-| Deudas comerciales | 1.495.000.000 | 1.495.000.000 | 0 | 1.509.110.207 | 1.509.110.207 | 0 | OK |
-| Remuneraciones y cargas sociales | 169.000.000 | 169.000.000 | 0 | 170.595.067 | 170.595.067 | 0 | OK |
-| Cargas fiscales | 727.770.750 | 727.770.750 | 0 | 709.683.582 | 709.683.582 | 0 | OK |
-| Préstamos (corriente + no corriente) | 300.000.000 | 300.000.000 | 0 | 590.521.385 | 590.521.385 | 0 | OK |
-| **Total activo** | 10.718.152.850 | 10.718.152.850 | 0 | 10.860.791.741 | 10.860.791.741 | 0 | OK |
-| **Total pasivo** | 2.691.770.750 | 2.691.770.750 | 0 | 2.979.910.241 | 2.979.910.241 | 0 | OK |
-| **Patrimonio neto (activo − pasivo)** | 8.026.382.100 | 8.026.382.100 | 0 | 7.880.881.500 | 7.880.881.500 | 0 | OK |
+| Caja y bancos | 549.713.825 | 549.713.825 | 549.713.825 | 546.691.576 | 546.691.576 | 546.691.576 | OK |
+| Inversiones | 270.000.000 | 270.000.000 | 270.000.000 | 288.699.344 | 288.699.344 | 288.699.344 | OK |
+| Créditos por ventas | 2.204.500.000 | 2.204.500.000 | 2.204.500.000 | 2.227.577.893 | 2.227.577.893 | 2.227.577.893 | OK |
+| Otros créditos (neto de compensación) | 79.617.953 | 79.617.953 | 79.617.953 | 82.399.053 | 82.399.053 | 82.399.053 | OK |
+| Bienes de cambio | 1.632.937.362 | 1.632.937.362 | 1.632.937.362 | 1.652.008.929 | 1.652.008.929 | 1.652.008.929 | OK |
+| Bienes de uso (Anexo I) | 5.631.383.710 | 5.631.383.710 | 5.631.383.710 | 5.866.574.485 | 5.866.574.485 | 5.866.574.485 | OK |
+| Deudas comerciales | 1.495.000.000 | 1.495.000.000 | 1.495.000.000 | 1.509.110.207 | 1.509.110.207 | 1.509.110.207 | OK |
+| Remuneraciones y cargas sociales | 169.000.000 | 169.000.000 | 169.000.000 | 170.595.067 | 170.595.067 | 170.595.067 | OK |
+| Cargas fiscales (neto de compensación) | 377.770.750 | 377.770.750 | 377.770.750 | 512.843.120 | 512.843.120 | 512.843.120 | OK |
+| Préstamos (corriente + no corriente) | 300.000.000 | 300.000.000 | 300.000.000 | 590.521.385 | 590.521.385 | 590.521.385 | OK |
+| **Total activo** | 10.368.152.850 | 10.368.152.850 | 10.368.152.850 | 10.663.951.279 | 10.663.951.279 | 10.663.951.279 | OK |
+| **Total pasivo** | 2.341.770.750 | 2.341.770.750 | 2.341.770.750 | 2.783.069.779 | 2.783.069.779 | 2.783.069.779 | OK |
+| **Patrimonio neto (activo − pasivo)** | 8.026.382.100 | 8.026.382.100 | 8.026.382.100 | 7.880.881.500 | 7.880.881.500 | 7.880.881.500 | OK |
 
 ### Estado de resultados (egresos con signo positivo; resultado del ejercicio: ganancia positiva)
 
-| Concepto | Nota / anexo 2026 | BSS 2026 | Dif. | Nota / anexo 2025 | Comparativo 2025 | Dif. | Resultado |
+| Concepto | Nota / anexo 2026 | BSS 2026 | eecc 2026 | Nota / anexo 2025 | Comparativo 2025 | eecc 2025 | Resultado |
 |---|---:|---:|---:|---:|---:|---:|---|
-| Costo de mercaderías vendidas (Anexo III) | 14.648.408.412 | 14.648.408.412 | 0 | 14.955.044.768 | 14.955.044.768 | 0 | OK |
-| Gastos de comercialización (Anexo IV) | 3.173.091.074 | 3.173.091.074 | 0 | 3.228.372.658 | 3.228.372.658 | 0 | OK |
-| Gastos de administración (Anexo IV) | 1.081.445.216 | 1.081.445.216 | 0 | 1.119.537.023 | 1.119.537.023 | 0 | OK |
-| Intereses del préstamo (Anexo IV) | 118.601.067 | 118.601.067 | 0 | 179.756.770 | 179.756.770 | 0 | OK |
-| Cargo por incobrables = aumentos de la previsión (Anexo II) | 43.490.830 | 43.490.830 | 0 | 44.454.766 | 44.454.766 | 0 | OK |
-| Amortizaciones (Anexo I) = cuentas de amortización | 386.532.840 | 386.532.840 | 0 | 407.396.305 | 407.396.305 | 0 | OK |
-| Impuesto a las ganancias (Nota 8) | 673.170.750 | 673.170.750 | 0 | 654.568.252 | 654.568.252 | 0 | OK |
-| **Resultado del ejercicio** | 496.161.444 | 496.161.444 | 0 | 611.508.366 | 611.508.366 | 0 | OK |
+| Costo de mercaderías vendidas (Anexo III) | 14.648.408.412 | 14.648.408.412 | 14.648.408.412 | 14.955.044.768 | 14.955.044.768 | 14.955.044.768 | OK |
+| Gastos de comercialización (Anexo IV) | 3.173.091.074 | 3.173.091.074 | 3.173.091.074 | 3.228.372.658 | 3.228.372.658 | 3.228.372.658 | OK |
+| Gastos de administración (Anexo IV) | 1.081.445.216 | 1.081.445.216 | 1.081.445.216 | 1.119.537.023 | 1.119.537.023 | 1.119.537.023 | OK |
+| Intereses del préstamo (Anexo IV) | 118.601.067 | 118.601.067 | 118.601.067 | 179.756.770 | 179.756.770 | 179.756.770 | OK |
+| Cargo por incobrables = aumentos de la previsión (Anexo II) | 43.490.830 | 43.490.830 | — | 44.454.766 | 44.454.766 | — | OK |
+| Amortizaciones (Anexo I) = cuentas de amortización | 386.532.840 | 386.532.840 | — | 407.396.305 | 407.396.305 | — | OK |
+| Impuesto a las ganancias (Nota 8) | 673.170.750 | 673.170.750 | 673.170.750 | 654.568.252 | 654.568.252 | 654.568.252 | OK |
+| **Resultado del ejercicio** | 496.161.444 | 496.161.444 | 496.161.444 | 611.508.366 | 611.508.366 | 611.508.366 | OK |
 
 ### Otros controles
 
@@ -296,7 +304,7 @@ Fuente de la columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajusta
 
 **Resultado global de los controles: OK.** La hoja Controles de `anexos_andina_2026.xlsx` repite los cruces con fórmulas.
 
-**Cruce con `eecc-2026`: pendiente.** La sesión eecc-2026 trabaja en paralelo y su entregable no estaba integrado al cerrar estas notas. Lo hace la reina con esta misma tabla.
+**Cruce con `eecc-2026`: OK.** Los rubros y totales del ESP y del ER de las notas coinciden con `eecc_andina_2026.xlsx` en 2026 y en 2025 (columnas eecc).
 
 ## Supuestos, Dudas y datos faltantes (resumen)
 
@@ -306,7 +314,6 @@ Fuente de la columna BSS: `entregables/ajuste/ajuste_2026.xlsx`, hoja BSS ajusta
 | Duda | Número de la resolución de adopción de la RT 54 / RT 59 en el CPCECABA y párrafos de la RT 54 sobre unidad de medida | 1.1 |
 | Duda | Base de la reserva legal (art. 70 LGS) con o sin ajuste de capital: faltante de $731.033.507 y asignación mínima propuesta de $55.383.491 | 9.3 |
 | Duda | Impuesto diferido no reconocido (supuesto del insumo) y escala de alícuotas de la Ley 27.630 | 8 |
-| Duda | Compensación de los anticipos de IG con la deuda del impuesto (criterio a unificar con eecc-2026) | 6 |
 | Dato faltante | Prueba de valor recuperable de bienes de uso y de VNR de bienes de cambio | 2, 7.1, 7.2 |
 | Dato faltante | Fechas de aplicación de la previsión para incobrables (supuesto lineal mensual) | Anexo II |
 | Dato faltante | Cronograma, tasa y garantías del préstamo | 7.6 |
