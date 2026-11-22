@@ -1,6 +1,6 @@
 # Encargo: ajuste-inflacion
 
-**Estado:** EN_CURSO (hito 1/3 cerrado)
+**Estado:** EN_CURSO (hito 2/3 cerrado)
 **Rama:** obrera/ajuste-inflacion
 **Creado por la reina:** 2026-11-22 · Fase 2 de `PLAN_ANDINA.md`
 
@@ -25,7 +25,7 @@
 
 ## Entregables
 - [x] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
-- [ ] `entregables/ajuste/ajuste_2026.xlsx`: la misma estructura, con saldos iniciales = cierre 2025 ajustado × coeficiente dic-2025→dic-2026.
+- [x] `entregables/ajuste/ajuste_2026.xlsx`: la misma estructura, con saldos iniciales = cierre 2025 ajustado × coeficiente dic-2025→dic-2026.
 - [ ] `entregables/ajuste/comparativo_2025_en_moneda_dic2026.xlsx`: ESP, ER y EEPN 2025 en moneda de dic-2026.
 - [ ] `entregables/ajuste/resumen.md`: método, norma citada, coeficientes usados, resultado histórico vs. ajustado por año, RECPAM y Dudas.
 
@@ -42,3 +42,4 @@
 ---
 ## Bitácora
 - 2026-11-22 · **Hito 1 — Ajuste 2025 (moneda dic-2025): cerrado.** `ajuste_2025.xlsx` generado por `generador_ajuste.py` (fórmulas vinculadas, recalculado con LibreOffice). Resultado histórico $926.354.325 → ajustado **$465.992.887**. RECPAM por diferencia **−$62.482.293** = método directo (dif. < $0,01; identidad algebraica explicada en hoja RECPAM). PN ajustado 31/12/2025 $6.005.534.707. RNA inicial por diferencia (RT 6, primer ejercicio). Controles: todos OK. **Duda (no bloquea):** reserva legal art. 70 LGS. Propuesta: base = capital + ajuste de capital; faltante $557,1 M a dic-2025; no se contabiliza asignación (requiere asamblea). Falta: hitos 2 y 3.
+- 2026-11-22 · **Hito 2 — Ajuste 2026 (moneda dic-2026): cerrado.** `ajuste_2026.xlsx` con hoja Inicio (cierre 2025 aj. × 1,312270). PN inicial 2026 $7.880.881.500 = PN 2025 aj. × coef. ✔. Auxiliares desde el origen = Inicio ✔. Resultado histórico $1.250.174.250 → ajustado **$496.161.444**. RECPAM **−$174.121.078** = método directo. Venta C01: ganancia hist. $27,5 M → pérdida aj. $13,8 M. Coeficiente con nov y dic-2026 **estimados**. Reserva legal: faltante $731,0 M a dic-2026; asignación propuesta para asamblea 2027 $55,4 M (Duda, no contabilizada). Falta: hito 3.
