@@ -1,6 +1,6 @@
 # Encargo: notas-anexos-2026
 
-**Estado:** PENDIENTE
+**Estado:** TERMINADO
 **Rama:** obrera/notas-anexos (sesión reutilizada)
 **Creado por la reina:** 2026-11-22 · Fase 3 de `PLAN_ANDINA.md`
 
@@ -21,7 +21,7 @@ Redactar las notas y anexos de los EECC al 31/12/2026, comparativos con 2025, en
 - Pendiente: prueba de valor recuperable / VNR. Si no hay datos, Dato faltante.
 
 ## Entregables
-- [ ] `entregables/notas-anexos-2026/notas_andina_2026.md`. Debe incluir:
+- [x] `entregables/notas-anexos-2026/notas_andina_2026.md`. Debe incluir:
   - Bases de preparación y unidad de medida: índice usado, coeficientes e inflación anual.
   - Criterios de medición.
   - Composición de rubros.
@@ -29,7 +29,7 @@ Redactar las notas y anexos de los EECC al 31/12/2026, comparativos con 2025, en
   - Impuesto a las ganancias.
   - Reserva legal (art. 70 LGS) y restricciones a la distribución.
   - Hechos posteriores.
-- [ ] `entregables/notas-anexos-2026/anexos_andina_2026.xlsx`, con los anexos:
+- [x] `entregables/notas-anexos-2026/anexos_andina_2026.xlsx`, con los anexos:
   - Bienes de uso: origen, altas, bajas, amortizaciones y neto, comparativo.
   - Previsiones.
   - Costo de mercaderías vendidas.
@@ -42,3 +42,4 @@ Redactar las notas y anexos de los EECC al 31/12/2026, comparativos con 2025, en
 
 ---
 ## Bitácora
+2026-11-22 · Hecho: merge de la rama integrada; notas (11 notas + tabla de control) y anexos I–V (Bienes de uso comparativo, Previsiones, CMV, Gastos art. 64 LGS, Seguros) generados desde `entregables/ajuste/` con `generador_notas_anexos.py`. Verificación con `verificar_notas_anexos.py` (Python + LibreOffice): 27 controles del Excel OK; tabla de control de las notas OK (ESP 2026/2025, ER 2026/2025, otros). Totales: activo $10.718.152.850; pasivo $2.691.770.750; PN $8.026.382.100; resultado 2026 $496.161.444; comparativo 2025 $611.508.366; bienes de uso $5.631.383.710; CMV $14.648.408.412; compras históricas $13.115.000.000. · Falta: cruce con `eecc-2026` (lo hace la reina). · Siguiente paso: regenerar con los índices oficiales de nov/dic-2026 cuando se publiquen. · Decisión pendiente (no bloquea): base de la reserva legal (art. 70 LGS); impuesto diferido; compensación de anticipos de IG (unificar con eecc-2026). Dudas/datos faltantes listados al final de las notas.
