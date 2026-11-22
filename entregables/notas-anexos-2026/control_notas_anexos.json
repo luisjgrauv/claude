@@ -1,0 +1,235 @@
+{
+ "ok": true,
+ "controles": [
+  {
+   "control": "Caja y bancos",
+   "nota_2026": 549713825,
+   "bss_2026": 549713825,
+   "nota_2025": 546691575.8758584,
+   "bss_2025": 546691575.8758584,
+   "ok": true
+  },
+  {
+   "control": "Inversiones",
+   "nota_2026": 270000000,
+   "bss_2026": 270000000,
+   "nota_2025": 288699343.957486,
+   "bss_2025": 288699343.957486,
+   "ok": true
+  },
+  {
+   "control": "Créditos por ventas",
+   "nota_2026": 2204500000,
+   "bss_2026": 2204500000,
+   "nota_2025": 2227577892.581062,
+   "bss_2025": 2227577892.581062,
+   "ok": true
+  },
+  {
+   "control": "Otros créditos",
+   "nota_2026": 429617952.6031043,
+   "bss_2026": 429617952.6031043,
+   "nota_2025": 279239514.8988255,
+   "bss_2025": 279239514.8988255,
+   "ok": true
+  },
+  {
+   "control": "Bienes de cambio",
+   "nota_2026": 1632937361.54992,
+   "bss_2026": 1632937361.54992,
+   "nota_2025": 1652008928.70584,
+   "bss_2025": 1652008928.70584,
+   "ok": true
+  },
+  {
+   "control": "Bienes de uso (Anexo I)",
+   "nota_2026": 5631383710.404325,
+   "bss_2026": 5631383710.404317,
+   "nota_2025": 5866574484.769874,
+   "bss_2025": 5866574484.769886,
+   "ok": true
+  },
+  {
+   "control": "Deudas comerciales",
+   "nota_2026": 1495000000,
+   "bss_2026": 1495000000,
+   "nota_2025": 1509110207.0505,
+   "bss_2025": 1509110207.0505,
+   "ok": true
+  },
+  {
+   "control": "Remuneraciones y cargas sociales",
+   "nota_2026": 169000000,
+   "bss_2026": 169000000,
+   "nota_2025": 170595066.883969,
+   "bss_2025": 170595066.883969,
+   "ok": true
+  },
+  {
+   "control": "Cargas fiscales",
+   "nota_2026": 727770750,
+   "bss_2026": 727770750,
+   "nota_2025": 709683581.5029887,
+   "bss_2025": 709683581.5029887,
+   "ok": true
+  },
+  {
+   "control": "Préstamos (corriente + no corriente)",
+   "nota_2026": 300000000.0,
+   "bss_2026": 300000000,
+   "nota_2025": 590521385.367586,
+   "bss_2025": 590521385.367586,
+   "ok": true
+  },
+  {
+   "control": "Total activo",
+   "nota_2026": 10718152849.557348,
+   "bss_2026": 10718152849.55734,
+   "nota_2025": 10860791740.788946,
+   "bss_2025": 10860791740.788958,
+   "ok": true
+  },
+  {
+   "control": "Total pasivo",
+   "nota_2026": 2691770750.0,
+   "bss_2026": 2691770750,
+   "nota_2025": 2979910240.8050437,
+   "bss_2025": 2979910240.8050437,
+   "ok": true
+  },
+  {
+   "control": "Patrimonio neto (activo − pasivo)",
+   "nota_2026": 8026382099.557348,
+   "bss_2026": 8026382099.55742,
+   "nota_2025": 7880881499.983902,
+   "bss_2025": 7880881499.98397,
+   "ok": true
+  },
+  {
+   "control": "Costo de mercaderías vendidas (Anexo III)",
+   "nota_2026": 14648408412.40982,
+   "bss_2026": 14648408412.4098,
+   "nota_2025": 14955044767.948948,
+   "bss_2025": 14955044767.9489,
+   "ok": true
+  },
+  {
+   "control": "Gastos de comercialización (Anexo IV)",
+   "nota_2026": 3173091074.0048447,
+   "bss_2026": 3173091074.0048447,
+   "nota_2025": 3228372657.6699743,
+   "bss_2025": 3228372657.66998,
+   "ok": true
+  },
+  {
+   "control": "Gastos de administración (Anexo IV)",
+   "nota_2026": 1081445215.8749065,
+   "bss_2026": 1081445215.8749065,
+   "nota_2025": 1119537023.1191683,
+   "bss_2025": 1119537023.11917,
+   "ok": true
+  },
+  {
+   "control": "Intereses del préstamo (Anexo IV)",
+   "nota_2026": 118601066.943057,
+   "bss_2026": 118601066.943057,
+   "nota_2025": 179756769.62767264,
+   "bss_2025": 179756769.627673,
+   "ok": true
+  },
+  {
+   "control": "Cargo por incobrables = aumentos de la previsión (Anexo II)",
+   "nota_2026": 43490829.6758904,
+   "bss_2026": 43490829.6758904,
+   "nota_2025": 44454765.74444523,
+   "bss_2025": 44454765.74444523,
+   "ok": true
+  },
+  {
+   "control": "Amortizaciones (Anexo I) = cuentas de amortización",
+   "nota_2026": 386532839.9852749,
+   "bss_2026": 386532839.98527443,
+   "nota_2025": 407396304.6924418,
+   "bss_2025": 407396304.69244117,
+   "ok": true
+  },
+  {
+   "control": "Impuesto a las ganancias (Nota 8)",
+   "nota_2026": 673170750,
+   "bss_2026": 673170750,
+   "nota_2025": 654568252.2020134,
+   "bss_2025": 654568252.202014,
+   "ok": true
+  },
+  {
+   "control": "Resultado del ejercicio",
+   "nota_2026": 496161444.4434824,
+   "bss_2026": 496161444,
+   "nota_2025": 611508366.4905609,
+   "bss_2025": 611508366,
+   "ok": true
+  },
+  {
+   "control": "Compras históricas 2026 (cifra de control del encargo eecc: $13.115.000.000)",
+   "nota_2026": 13115000000,
+   "bss_2026": 13115000000,
+   "ok": true
+  },
+  {
+   "control": "Anexo V: gasto de seguros 2026 = 5.2.06 + 5.3.05",
+   "nota_2026": 214285601.7995386,
+   "bss_2026": 214285601.7995388,
+   "ok": true
+  },
+  {
+   "control": "Anexo V: no devengado 31/12/2026 = 1.4.03",
+   "nota_2026": 59617952.60310425,
+   "bss_2026": 59617952.6031043,
+   "ok": true
+  },
+  {
+   "control": "Previsión: saldo final 2026 (Anexo II) = 1.3.02",
+   "nota_2026": 70500000,
+   "bss_2026": 70500000,
+   "ok": true
+  },
+  {
+   "control": "Nota 8: impuesto a la tasa + efecto ajuste = cargo 2026",
+   "nota_2026": 673170750.0,
+   "bss_2026": 673170750,
+   "ok": true
+  },
+  {
+   "control": "Nota 8: resultado histórico antes de IG 2026 × 35 % = cargo",
+   "nota_2026": 673170750.0,
+   "bss_2026": 673170750,
+   "ok": true
+  },
+  {
+   "control": "Nota 9: RNA 31/12/2026 = RNA inicio − dividendos + resultado",
+   "nota_2026": 3051142171.310532,
+   "bss_2026": 3051142171.31065,
+   "ok": true
+  }
+ ],
+ "totales": {
+  "activo_2026": 10718152849.55734,
+  "pasivo_2026": 2691770750,
+  "pn_2026": 8026382099.557341,
+  "activo_2025": 10860791740.788958,
+  "pasivo_2025": 2979910240.8050437,
+  "pn_2025": 7880881499.983913,
+  "resultado_2026": 496161444.4434824,
+  "resultado_2025": 611508366.4905609,
+  "bienes_uso_2026": 5631383710.404325,
+  "bienes_uso_2025": 5866574484.769874,
+  "cmv_2026": 14648408412.40982,
+  "cmv_2025": 14955044767.948948,
+  "gastos_com_2026": 3173091074.0048447,
+  "gastos_adm_2026": 1081445215.8749065,
+  "ig_2026": 673170750,
+  "recpam_2026": -174121078.291762,
+  "reserva_faltante": 731033506.931691,
+  "reserva_propuesta": 55383490.5467082
+ }
+}
