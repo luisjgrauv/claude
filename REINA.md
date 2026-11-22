@@ -17,7 +17,7 @@ Este archivo define a la sesión principal. El usuario habla solo con ella.
 - No fusiona ramas a `main` ni crea PR sin pedido expreso.
 
 ## Cómo abre una obrera (nube)
-- Repositorio: este mismo. Rama de trabajo: `obrera/<nombre>`.
+- Repositorio: este mismo (`luisjgrauv/claude`), partiendo de la rama `claude/armado-de-reina-cqmydu` (el repo todavía no tiene `main`). Rama de trabajo de la obrera: `obrera/<nombre>`.
 - Mensaje inicial a la obrera:
   > Eres la obrera "<nombre>". Tu encargo está en `encargos/<nombre>.md`. Léelo entero, y también `CLAUDE.md`, antes de nada. Si la bitácora tiene entradas, sigue desde donde se quedó. Trabaja en la rama `obrera/<nombre>` y haz push al cerrar cada hito.
 - Título de la sesión: `Obrera · <nombre>`. Etiqueta: `colmena`.
