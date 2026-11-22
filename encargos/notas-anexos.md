@@ -1,6 +1,6 @@
 # Encargo: notas-anexos
 
-**Estado:** PENDIENTE
+**Estado:** DETENIDA
 **Rama:** obrera/notas-anexos
 **Creado por la reina:** 2026-11-22
 
@@ -40,3 +40,4 @@ Redactar las notas y los anexos de los estados contables de Distribuidora Andina
 
 ---
 ## Bitácora
+2026-11-22 · FRENO (reina: insumos se rehacen con más detalle) · Hecho: lectura de encargo, CLAUDE.md, BSS 2026 y datos adicionales; verificado resultado $73.125.000 (antes de IG $112.500.000 × 35 % = $39.375.000); verificación de vigencia: RT 54 (t.o. RT 59) obligatoria para ejercicios iniciados desde 01/01/2025 (deroga RT 6, 8, 9, 17, entre otras). No se generaron entregables. · Hallazgos sobre el BSS actual (revisar en el nuevo): (1) amortización de rodados $12M y muebles $1,5M equivale a no amortizar las altas del año, en contradicción con "año de alta completo" (diferencia $3,3M); (2) base de la reserva legal (art. 70 LGS) sin definir: capital nominal $100M (tope $20M ya superado) o capital + ajuste $180M (tope $36M; 5 % del resultado = $3.656.250); la RG IGJ 7/2015 fue reemplazada por la RG IGJ 15/2024, verificar criterio vigente; (3) anticipos de IG $12M expuestos sin compensar con la deuda de IG. · Falta: todo el entregable (notas .md y anexos .xlsx) sobre los insumos nuevos. · Siguiente paso exacto: cuando la reina avise, leer los insumos nuevos de `insumos/andina/`, rehacer cuadre y resultado de control, y recién ahí redactar notas y anexos. · Decisión pendiente: ninguna hasta recibir insumos nuevos.
