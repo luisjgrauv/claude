@@ -1,6 +1,6 @@
 # Encargo: eecc-basicos
 
-**Estado:** DETENIDA
+**Estado:** DETENIDA — obsoleto: el usuario redefinió el alcance (ejercicio 2025, valores históricos). Reemplazado por `encargos/eecc-2026.md`.
 **Rama:** obrera/eecc-basicos
 **Creado por la reina:** 2026-11-22
 
