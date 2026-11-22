@@ -17,3 +17,15 @@ Una sola sesión (la **reina**) recibe tus objetivos, escribe un encargo por tra
 - Parte: *"¿Cómo va la colmena?"*
 - Cambio transversal: *"El precio del bono pasa a X; avisa a quien lo use."*
 - Freno: *"FRENO"* · Reanudar: *"Retoma lo que dejamos, trabajo a trabajo."*
+
+## Tres tipos de ayuda (no confundir)
+| Tipo | Qué es | Cuándo usarlo |
+|---|---|---|
+| **Obrera** | Sesión completa con su propio contexto; puedes entrar a corregirla. | Trabajos largos. |
+| **Subagente** | Lo lanza la obrera para algo rápido (buscar, revisar un archivo); devuelve un resumen y desaparece. | Tareas cortas; no hablas con él. |
+| **Pregunta lateral** | Consulta a una obrera sin desviarla de su tarea ("¿qué haces?", "¿cuánto te falta?"). | Dudas, sin detener a nadie. |
+
+## Cuándo hablar con la reina y cuándo con la obrera
+- **Reina:** arrancar varias cosas, cambios que afectan a varios encargos, decisiones, reanudar tras un corte.
+- **Obrera directa:** ajuste puntual de un solo trabajo (cambiar una frase, quitar un rótulo). Cuesta menos tokens y es más rápido.
+- La reina revisa la miel; **la valida el usuario**.
