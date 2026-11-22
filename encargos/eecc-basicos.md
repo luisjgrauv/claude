@@ -1,6 +1,6 @@
 # Encargo: eecc-basicos
 
-**Estado:** DETENIDA — obsoleto: el usuario redefinió el alcance (ejercicio 2025, valores históricos). Pendiente de nuevo encargo.
+**Estado:** DETENIDA — obsoleto: el usuario redefinió el alcance (ejercicio 2025, valores históricos). Reemplazado por `encargos/eecc-2026.md`.
 **Rama:** obrera/eecc-basicos
 **Creado por la reina:** 2026-11-22
 
@@ -38,3 +38,4 @@ Elaborar los estados contables básicos de Distribuidora Andina S.A. (ficticia) 
 
 ---
 ## Bitácora
+- 2026-11-22 · **FRENO recibido de la reina (insumos en revisión: BSS nuevo con más detalle y auxiliares).** · **Hecho:** leídos encargo, CLAUDE.md, BSS y datos adicionales actuales. Verificación preliminar con el BSS viejo (no vigente): resultado $73.125.000 OK; ESP cuadra (Activo 573.750.000 = Pasivo 191.875.000 + PN 381.875.000); EFE indirecto concilia (operativas 65.250.000; inversión −22.000.000; financiación −50.000.000; variación −6.750.000). Norma verificada: RT 54 (NUA, T.O. RT 59) deroga RT 8 y RT 9; presentación según RT 54 (ver Res. JG 660/26, dispensa transitoria de presentación). No se generó ningún Excel ni entregable. · **Falta:** todo el entregable (libro Excel con BSS, ESP, ER, EEPN, EFE, Controles, Supuestos; resumen.md), sobre los insumos nuevos. · **Siguiente paso exacto:** cuando la reina avise, releer `insumos/andina/` nuevos y el encargo (por si cambia el resultado de control), y construir el libro con openpyxl + fórmulas vinculadas a la hoja BSS; recalcular con LibreOffice (disponible en /usr/bin/soffice) y verificar controles en cero. Dudas a trasladar: RECPAM de efectivo no informado por separado en EFE (dato faltante); intereses pagados clasificados en operativas. · **Decisión pendiente:** ninguna; espero insumos nuevos.
