@@ -1,6 +1,6 @@
 # Encargo: ajuste-inflacion
 
-**Estado:** PENDIENTE
+**Estado:** TERMINADO
 **Rama:** obrera/ajuste-inflacion
 **Creado por la reina:** 2026-11-22 · Fase 2 de `PLAN_ANDINA.md`
 
@@ -24,10 +24,10 @@
 - Préstamo: cronograma trimestral **supuesto** (Dato faltante).
 
 ## Entregables
-- [ ] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
-- [ ] `entregables/ajuste/ajuste_2026.xlsx`: la misma estructura, con saldos iniciales = cierre 2025 ajustado × coeficiente dic-2025→dic-2026.
-- [ ] `entregables/ajuste/comparativo_2025_en_moneda_dic2026.xlsx`: ESP, ER y EEPN 2025 en moneda de dic-2026.
-- [ ] `entregables/ajuste/resumen.md`: método, norma citada, coeficientes usados, resultado histórico vs. ajustado por año, RECPAM y Dudas.
+- [x] `entregables/ajuste/ajuste_2025.xlsx`: hojas de coeficientes, bienes de uso, seguros, mercaderías, PN, resultados, RECPAM y BSS ajustado al 31/12/2025.
+- [x] `entregables/ajuste/ajuste_2026.xlsx`: la misma estructura, con saldos iniciales = cierre 2025 ajustado × coeficiente dic-2025→dic-2026.
+- [x] `entregables/ajuste/comparativo_2025_en_moneda_dic2026.xlsx`: ESP, ER y EEPN 2025 en moneda de dic-2026.
+- [x] `entregables/ajuste/resumen.md`: método, norma citada, coeficientes usados, resultado histórico vs. ajustado por año, RECPAM y Dudas.
 
 ## Criterios de aceptación
 - Los BSS ajustados cuadran.
@@ -41,3 +41,7 @@
 
 ---
 ## Bitácora
+- 2026-11-22 · **Hito 1 — Ajuste 2025 (moneda dic-2025): cerrado.** `ajuste_2025.xlsx` generado por `generador_ajuste.py` (fórmulas vinculadas, recalculado con LibreOffice). Resultado histórico $926.354.325 → ajustado **$465.992.887**. RECPAM por diferencia **−$62.482.293** = método directo (dif. < $0,01; identidad algebraica explicada en hoja RECPAM). PN ajustado 31/12/2025 $6.005.534.707. RNA inicial por diferencia (RT 6, primer ejercicio). Controles: todos OK. **Duda (no bloquea):** reserva legal art. 70 LGS. Propuesta: base = capital + ajuste de capital; faltante $557,1 M a dic-2025; no se contabiliza asignación (requiere asamblea). Falta: hitos 2 y 3.
+- 2026-11-22 · **Hito 2 — Ajuste 2026 (moneda dic-2026): cerrado.** `ajuste_2026.xlsx` con hoja Inicio (cierre 2025 aj. × 1,312270). PN inicial 2026 $7.880.881.500 = PN 2025 aj. × coef. ✔. Auxiliares desde el origen = Inicio ✔. Resultado histórico $1.250.174.250 → ajustado **$496.161.444**. RECPAM **−$174.121.078** = método directo. Venta C01: ganancia hist. $27,5 M → pérdida aj. $13,8 M. Coeficiente con nov y dic-2026 **estimados**. Reserva legal: faltante $731,0 M a dic-2026; asignación propuesta para asamblea 2027 $55,4 M (Duda, no contabilizada). Falta: hito 3.
+- 2026-11-22 · **Hito 3 — Comparativo 2025 en moneda dic-2026: cerrado.** ESP (31/12/2025 y 31/12/2024), ER y EEPN 2025 × 1,312270. Resultado 2025 en moneda dic-2026 **$611.508.366**; RECPAM −$81.993.622; PN 31/12/2025 $7.880.881.500 = PN inicial 2026 ✔. `resumen.md` con método, norma, coeficientes, resultados y Dudas. `verificar_ajuste.py`: 27 OK · 0 errores (recálculo LibreOffice + cálculo independiente en Python). **Estado TERMINADO.**
+  - Decisiones pendientes para el usuario (no bloquean): (1) reserva legal art. 70 LGS (propuesta en resumen §6); (2) regenerar cuando se publiquen los índices oficiales de nov y dic-2026; (3) numeración exacta de los párrafos de la RT 54 sobre unidad de medida.
